@@ -1,0 +1,287 @@
+*{
+    margin:0px;
+    padding:0px;
+    font-family: 'Century Gothic', sans-serif;
+    
+}
+
+body{
+    background-color: #F8FEF8;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+/* nav */
+nav ul{
+    list-style: none;
+}
+
+li,
+a {
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    height: 70px;
+    padding: 0 4rem;
+    background-color: #8AD684;
+    /* Ciclo Renovable */
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 2rem;
+    color: #FFFFFF;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.1);
+
+
+
+}
+
+/* Logo y titulo */
+.logo {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.logo>img {
+    width: 2rem;
+}
+
+/* Iconos de menu */
+.nav-icons {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 30px;
+
+}
+
+nav>ul>li>a {
+    font-family: 'Century Gothic';
+    font-style: normal;
+    font-weight:350;
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+    width: 100%;
+    height: 100%;
+    padding: 14px;
+    color: #FFFFFF;
+
+}
+
+a>img {
+    margin-top: .3rem;
+    height: 1.3rem;
+}
+
+a:hover {
+    filter: brightness(0.93);
+}
+#r{
+    font-weight: bold;
+    font-size: 1.55rem;
+}
+
+/* Submenu */
+nav>ul {
+    height: 100%;
+}
+
+nav>ul>li {
+    height: 100%;
+    position: relative;
+}
+
+nav ul li ul {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    left: -120px;
+    padding: 10px 0;
+    border-radius: 8px;
+    visibility: hidden;
+    opacity: 0;
+    background-color: #FFFFFF;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, .5);
+    z-index: 1;
+    transition: all 300ms ease;
+}
+
+nav ul li:hover ul {
+    visibility: visible;
+    opacity: 1;
+    top: 55px;
+}
+
+nav ul li ul::before {
+    content: ' ';
+    position: absolute;
+    top: -17px;
+    left: 130px;
+    width: 0;
+    height: 0;
+    border-left: 17px solid transparent;
+    border-right: 17px solid transparent;
+    border-bottom: 17px solid white;
+}
+
+nav ul li ul li a {
+    display: block;
+    font-size: .81rem;
+    padding: .40rem 1rem;
+    color: #454942;
+    transition: all 300ms ease;
+}
+
+nav ul li ul li:hover {
+    background: rgba(102, 194, 95, 0.6);
+}
+.navList{
+  display: flex;
+}
+
+
+
+
+/* Shop Cart */
+
+.tusCompras{
+    color: #454942;
+    font-weight: normal;
+    margin: 3% 0% 2% 5%;
+}
+
+.tableContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+   
+}
+
+ table {
+            width: 90%;
+            /* border-collapse: collapse; */
+            border: 3px solid  #8AD684;
+            border-radius: 8px;
+            
+            
+            
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+            color: #454942;
+            text-align: center;
+            width: 10%;
+            
+            
+            
+        } 
+
+        .totalCompra{
+            margin: 3% 0% 3% 5%;
+        }
+
+       
+        /* Formulario de pago  */
+
+       
+        .container {
+            width: 90%;
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-top: 3px solid #8AD684; 
+            border-bottom: 3px solid #8AD684; 
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s ease; 
+        }
+
+        h2 {
+            color:#454942;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        h3{
+            color:#454942;
+        }
+
+        form {
+            text-align: center;
+            margin-bottom: 20px; /
+        }
+
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #555;
+        }
+
+        input {
+            width: calc(100% - 16px);
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease; 
+        }
+
+        input[type="submit"] {
+            font-family: 'Century Gothic', sans-serif;
+            font-weight: bold;
+            width: 20%;
+            height: 40px;
+            background-color: rgba(136, 214, 132, 0.49);
+            color: #454942;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.15);
+            font-size: 15px;
+            font-weight: normal;
+            position: relative;
+            overflow: hidden;
+            background-position: center bottom; 
+            border-radius: 5%;
+            margin: 1%;
+            transition: background-color 0.3s, color 0.3s, background-position 0.3s; 
+        }
+
+        input[type="submit"]:hover {
+            background-color: #3ea53e;
+            color: #fff; 
+        }
+
+        
+
+        /* Estilo al pasar el mouse sobre los campos de entrada */
+        input:hover {
+            border-color: #8AD684;
+        }
+
+        /* Estilo para el botón circular de selección de tarjeta */
+        .card-option {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background-color:#89d6847b;
+            border-radius: 50%;
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            border: none;
+        }
+
+        .card-option.selected {
+            background-color: #8AD684; 
+        }

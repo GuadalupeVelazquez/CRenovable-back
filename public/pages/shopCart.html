@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/shopCart.css">
+    <title>Tus compras</title>
+</head>
+<body>
+    <!-- nav -->
+<nav>
+    <div class="logo">
+    <img src="../../images/vec_logo.svg" alt="Logo Ciclo Renovable">
+    <h1>Ciclo <span id="r">Renovable</span></h1>
+    </div>
+    <ul class="nav-icons">
+        <li class="navList"><a href="#">Productos</a></li>
+        <li class="navList"><a href="#" title="¡Ingresá a tu perfil!"><img src="../../images/vec_perfil.svg" alt="Icono de perfil" ></a>
+            <ul>
+                <li><a href="#" title="Dirigite a tu perfil">Mi perfil</a></li>
+                <li><a href="#" title="Mirá tus compras anteriores">Mis compras</a></li>
+                <li><a href="#" title="Cerrá sesión">Cerrar Sesión</a></li>
+            </ul>
+        </li>
+        <li class="navList"><a href="#" title="¡Revisá tu carrito de compras!"><img src="../../images/vec_cart.svg" alt="Icono de carrito de compras" ></a></li>
+    
+    </ul>
+</nav>
+
+<h1 class="tusCompras">Tus compras</h1>
+<div class="tableContainer">
+    <table>
+        <tr>
+            <th>Producto</th>
+            <th>Cantidad</th>
+            <th>Precio</th>
+        </tr> 
+    </table>  
+</div>
+
+<h3 class="totalCompra">Total de la compra: $1000</h3>
+
+
+<div class="container">
+    <h2>Seleccione su método de pago:</h2>
+
+    <!-- Formulario para tarjeta de crédito -->
+    <form action="#" method="post">
+        <h3>Tarjeta de Crédito</h3>
+        <div>
+            <label for="nombre">Nombre del Propietario:</label>
+            <input type="text" id="nombre" name="nombre" required>
+
+            <label for="numero">Número de Tarjeta:</label>
+            <input type="text" id="numero" name="numero" required>
+
+            <label for="ccv">CCV:</label>
+            <input type="text" id="ccv" name="ccv" required>
+
+            <label for="expiracion">Fecha de Expiración:</label>
+            <input type="text" id="expiracion" name="expiracion" placeholder="MM/YY" required>
+        </div>
+
+        <div>
+            <button class="card-option" type="button"></button> Caval
+            <button class="card-option" type="button"></button> Mastercard
+            <button class="card-option" type="button"></button> Visa
+        </div>
+
+        <input class="buttonShop" type="submit" value="Finalizar Pago">
+    </form>
+
+    <!-- Formulario para tarjeta de débito -->
+    <form action="#" method="post">
+        <h3 style="padding-top: 5%;">Tarjeta de Débito</h3>
+        <div>
+            <label for="nombre_debito">Nombre del Propietario:</label>
+            <input type="text" id="nombre_debito" name="nombre_debito" required>
+
+            <label for="numero_debito">Número de Tarjeta:</label>
+            <input type="text" id="numero_debito" name="numero_debito" required>
+
+            <label for="ccv_debito">CCV:</label>
+            <input type="text" id="ccv_debito" name="ccv_debito" required>
+
+            <label for="expiracion_debito">Fecha de Expiración:</label>
+            <input type="text" id="expiracion_debito" name="expiracion_debito" placeholder="MM/YY" required>
+        </div>
+
+        <div>
+            <button class="card-option" type="button"></button> Mastercard Débito
+            <button class="card-option" type="button"></button> Caval
+            <button class="card-option" type="button"></button> Visa
+        </div>
+
+        <input class="buttonShop" type="submit" value="Finalizar Pago">
+    </form>
+</div>
+
+
+
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const productos = [
+            {
+                "Producto": "Maceta biodegradable",
+                "Cantidad": 1,
+                "Precio": 1000
+            },
+            {
+                "Producto": "Lámpara botella",
+                "Cantidad": 2,
+                "Precio": 2000
+            },
+            {
+                "Producto": "Cepillo de dientes bambú",
+                "Cantidad": 3,
+                "Precio": 1000
+            },
+            {
+                "Producto": "Perfume solido",
+                "Cantidad": 1,
+                "Precio": 1000
+            },
+            {
+                "Producto": "Crema de coco",
+                "Cantidad": 2,
+                "Precio": 2000
+            },
+            {
+                "Producto": "Perfume solido",
+                "Cantidad": 3,
+                "Precio": 2000
+            }
+
+        ];
+
+        const tabla = document.querySelector("table");
+        productos.forEach(producto => {
+            const fila = `<tr>
+                <td>${producto.Producto}</td>
+                <td>${producto.Cantidad}</td>
+                <td>$${producto.Precio}</td>
+            </tr>`;
+            tabla.innerHTML += fila;
+        });
+
+        const totalCompra = productosUnicos.reduce((total, producto) => total + producto.Precio, 0);
+
+        const totalElemento = document.querySelector("h3");
+        totalElemento.textContent = `Total de la compra: $${totalCompra}`;
+    });
+
+
+    const cardOptions = document.querySelectorAll('.card-option');
+
+cardOptions.forEach(option => {
+    option.addEventListener('click', () => {
+        cardOptions.forEach(otherOption => {
+            if (otherOption !== option) {
+                otherOption.classList.remove('selected');
+            }
+        });
+        option.classList.toggle('selected');
+    });
+});
+</script>
+</html>

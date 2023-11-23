@@ -1,0 +1,86 @@
+.page-container {
+    background-color: olive;
+    height: 100vh;
+    flex-direction: column;
+}
+
+.pega-header {
+    background-color: bisque;
+    flex: 0 0 64px;
+}
+
+.pega-header nav {
+    flex: 1 1 100%;
+}
+
+.page-body {
+    background-color: rgba(214, 243, 210, 1);
+
+    flex: 1 1 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+.edit {
+    background-color: rgba(255, 255, 255, 1);
+    padding: 10px;
+    margin: 0 12vw;
+    border-radius: 6px;
+}
+
+.user {
+    background-color: rgba(255, 255, 255, 1);
+    flex-direction: column;
+    gap: 12px;
+    padding: 0 32px;
+}
+
+.title {
+    justify-content: center;
+
+}
+
+.title h3 {
+    padding: 16px 0;
+    margin: 0;
+}
+
+
+.btnRemplace {
+    justify-content: center;
+}
+
+.form-edit {
+    justify-content: center;
+
+}
+
+.form {
+    flex-direction: column;
+}
+
+.input-colums {
+
+    flex: 1 1 100%;
+
+}
+
+.input-colum {
+    flex-direction: column;
+    gap: 32px;
+    padding: 32px;
+}
+
+
+
+
+.input {
+    gap: 16px;
+    flex-direction: column;
+}
+
+.btn-idit {
+    justify-content: end;
+    gap: 10px;
+    padding: 12px;
+}

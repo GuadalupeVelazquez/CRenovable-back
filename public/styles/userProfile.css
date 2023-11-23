@@ -1,0 +1,78 @@
+body{
+    background-color: #D6F3D2;
+    background-image: url(../images/userPerfVectores/vec_userP.svg);
+    background-size: 100vw;
+    background-repeat:no-repeat;
+    background-position: bottom;
+}
+
+.userCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: .70rem;
+    margin: 2rem auto;
+    max-width: min(32vw, 532px);
+    min-width: 300px;
+    max-height: min(81vh, 700px);
+    background: #FFFFFF;
+    background-image: url(../images/userPerfVectores/background.svg);
+    background-repeat: no-repeat;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 40px;
+}
+.userImg{
+    display: flex;
+    flex-direction: column;
+    gap: .75rem;
+    padding-top: 2.15rem;
+    padding-bottom: 0;
+    align-items: center;
+}
+.userImg> img{
+    height: 217px;
+    width: 217px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.35));
+    border: 3px solid #D6F3D2;
+    border-radius: 50%;
+}
+#nameUser{
+    color: #454942;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+#editUser{
+    width: 12.5rem;
+    height: 2rem;
+    border-style: none;
+    border-radius: 0.3rem;   
+    background: #8AD684;
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 20px;
+    color: rgba(69, 73, 66, 1);
+}
+.userInfo{
+    padding-bottom: .5rem;
+    
+}
+.userInfo>img{
+    margin-right:.7rem;
+    margin-top: 1rem;
+}
+.boxInfo{
+    padding-bottom: 3rem;
+    padding-top: 1.25rem;
+}
+.placeUser{
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 17px;
+    text-align: left;
+
+}
+.placeUser>img{
+    margin-right: .5rem;
+}
+

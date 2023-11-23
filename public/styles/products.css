@@ -1,0 +1,192 @@
+body{
+    background-color:rgba(248, 253, 247, 1);
+}
+/* Estrucutra general de pagina */
+p,
+a,
+li,
+h2,
+h3{
+    color: rgba(69, 73, 66, 1);
+
+}
+.container{
+    display: table;
+    width: 100%;
+
+}
+aside{
+    float: left;
+    width: 17%;
+    max-width: 300px;
+    height: 100vh;
+    max-height: 100%;/*usar para darle altura al aside*/
+    background-color: rgba(214, 243, 210, 1);
+}
+article{
+    float: right;
+    width: 83%;
+}
+
+/* Header */
+header{
+    padding: 3rem; /*podemos achicar le header para que vea todo completo, tambien tenemos que ver el padding del nav y el menu*/
+    max-height: min(30vh, 480px);
+    background-image: url(../images/products/header_vec.svg);
+    text-align: center;
+    background-size: 100vw;
+    background-repeat: no-repeat;
+
+}
+header>h1{
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 29px;
+    color: rgba(69, 73, 66, 1);
+
+}
+
+/* Botón toogle */
+/* activo */
+.toogleOn{
+    display: inline-block;
+    position: relative;
+    background-color: rgba(102, 194, 95, 1);
+    width: 41px;
+    height: 17px;
+    border-radius: 20px;
+
+}
+
+.ballOn{
+    display: inline-block;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    background-color: rgba(255, 255, 255, 1);
+    width: 1rem;
+    height: 1rem;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+
+}
+
+/* Boton desactivado */
+.toogleOff{
+    display: inline-block;
+    position: relative;
+    background-color: rgba(102, 194, 95, 0.6);
+    width: 41px;
+    height: 17px;
+    border-radius: 20px;
+
+}
+
+.ballOff{
+    display: inline-block;
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    background-color: rgba(255, 255, 255, 1);
+    width: 1rem;
+    height: 1rem;
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+}
+/* Estilo del aside */
+
+aside>*{
+    margin-left: 1.2rem;
+    margin-top: 1rem;
+    margin-right: 1rem;
+    padding-left: 0;
+    font-size:15px;
+}
+a{
+    text-decoration: none;
+}
+.space,
+aside>ul>li>a{
+    margin-top:1rem;
+}
+aside li{
+    display: flex;
+    justify-content: space-between;
+    margin-left: .75rem; /*Si le sacamos esto, los objetos de las listas quedan sobre el margen, pero creo que con el borde queda mejor. A probar*/
+    list-style: none;
+}
+aside h2{
+    font-size: 1.4rem;
+    padding-top: .5rem;
+    padding-bottom: .25rem;
+}
+/* Estilo articulo */
+
+article>*{
+    margin-top: 3rem;
+    margin-left: 4rem;
+}
+article>h2{
+    font-size: 40px;
+    font-weight: 400;
+    padding: 0;
+}
+.containerProd{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4rem;
+}
+/* Estilo de los productos individuales */
+.prod{
+    background-color: rgb(236, 249, 235, 1);
+    width: 320px;
+    height: 389px;
+    border-radius: 3px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    margin-top: 0; /*anulando esto queda una distancia más grande entre titulo y card*/
+
+
+}
+.prod>*{
+    margin-top: 0.75rem;
+    margin-left: 0.75rem;
+}
+.prod>img{
+    width: 294px;
+    height: 195px;
+    padding-bottom: .75rem;
+}
+.prod>h3{
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+.prod>p{
+    font-size: 14.5px;
+    font-weight: 400;
+    line-height: 16px;
+    padding-bottom: 4px;
+}
+button{
+    width: 17px;
+    height: 17px;
+    border-style: none;
+    border-radius:50%;
+    font-weight: bolder;
+    background-color: #8AD684;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+
+}
+#precio{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 0;
+}
+#cantidad{
+    display: inline-block;
+    font-size: 20px;
+    font-weight: 700;
+    line-height: 25px;
+}

@@ -1,0 +1,129 @@
+*{
+    margin:0px;
+    padding:0px;
+}
+
+.registro h2{
+    margin-bottom: 5%;
+    color: #454942;
+    font-size: 60px;
+}
+
+.registrate{
+    margin-bottom: 5%;
+    color: #454942;
+    font-size: 30px;
+}
+
+.registro {
+    background-color: #8AD684;
+    font-family: 'Century Gothic', sans-serif;
+    display: flex;
+    justify-content: space-between; 
+    align-items: center; 
+    height: 100vh; 
+    color: #454942;
+}
+
+
+
+.columna-izquierda{
+    display: flex;
+    background-color: #E0F4DF;
+    height: 130%;
+    border-radius: 0 90% 90% 0;
+    flex-direction: column;
+    justify-content: center;
+    width: 50%;
+    padding: 0 80px 0 100px;
+    color: #454942;
+    position: relative;
+  left: -100%; 
+  animation: desplazarDesdeIzquierda 1s ease-in-out forwards;
+    
+}
+
+@keyframes desplazarDesdeIzquierda {
+  from {
+    left: -100%; 
+  }
+  to {
+    left: 0; 
+  }
+}
+
+
+ .columna-derecha {
+    padding: 20px;
+    margin:10%; 
+    
+} 
+
+.styleform{
+    height: 30px;
+    width: 110%; 
+    border-radius: 5px;
+    border: none; 
+    opacity: 0.5; 
+    transition: opacity 0.3s, transform 0.3s; 
+    transform: scale(1); 
+}
+
+  
+  
+  .styleform:hover {
+    opacity: 1; 
+    transform: scale(1.05); 
+  }
+  
+  
+  .styleform:focus {
+    outline: 2px solid #EBF8EA;
+  }
+
+  .botonconfirm {
+    background-color: white;
+    color: #454942;
+    padding: 10px 20px;
+    font-size: 15px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-family: 'Century Gothic', sans-serif;
+    font-weight: bold;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.3s ease;
+    margin: 15px;
+    cursor: pointer;
+  }
+  
+  .botonconfirm:hover {
+    background-color: #5BAA8E;
+    color: white;
+  }
+
+.botoncancel{
+  background-color: transparent;
+  color: #454942; 
+  padding: 10px 20px;
+  font-size: 15px;
+  text-decoration: none;
+  border: 1px solid white; 
+  border-radius: 5px;
+  font-family: 'Century Gothic', sans-serif;
+  font-weight: normal;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+    
+} 
+
+.botoncancel:hover {
+  background-color: #F2F2F2; 
+}
+
+.enlaceInicio{
+  color: #454942;
+  display: flex;
+  margin-top: 20px;
+  font-weight: bold;
+}
