@@ -30,12 +30,12 @@ app.post('/loginUser', async (req, res) => {
 
 //Register
 app.post('/createUser', async (req, res) => {
-    try {
-        await UserModel.create(req.body);
-        res.status(200).send('Éxito en el registro!');
-      } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Error al crear usuario' });
+  try {
+    await UserModel.create(req.body);
+    res.status(200).send('Éxito en el registro!');
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'Error al crear usuario' });
       }
 });
 
@@ -70,6 +70,22 @@ app.get('/getProduct/:id', async (req, res) => {
 
 //Editar usuario
 
+app.put('/editUser/:id', async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const updatedFields = req.body;
+    const updatedUserDetail = await UserModel.findByIdAndUpdate(userId, { $set: updatedFields }, { new: true });
+
+    if (updatedUserDetail) {
+      res.status(200).send('Usuario editado correctamente');
+    } else {
+      res.status(404).send('Usuario no encontrado');
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).send('Error al actualizar el usuario');
+  }
+});
 
 app.listen(3000, () => {
     console.log('Servidor en ejecución en http://localhost:3000');
