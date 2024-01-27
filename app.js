@@ -64,7 +64,7 @@ app.post('/login', async (req, res) => {
 app.get('/logout', (req, res) => {
   // Destruye la sesión y redirige al usuario a la página principal
   req.session.destroy(() => {
-    res.redirect('/');
+    res.redirect('http://localhost:3001/registrationRequest');
   });
 });
 
