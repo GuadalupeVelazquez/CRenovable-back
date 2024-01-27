@@ -3,40 +3,69 @@ const mongoose = require('mongoose');
 const cors = require ('cors')
 const UserModel = require('./modules/Users')
 const ProductModel = require('./modules/Products')
+const session = require('express-session');
 
 const app = express();
 app.use(cors())
 app.use(express.json())
 mongoose.connect('mongodb://127.0.0.1:27017/cicloDB');
 
-//Login
-app.post('/loginUser', async (req, res) => {
-  try {
-    const userName = req.body.name;
-    const userPassword = req.body.password;
+app.use(session({
+  secret: 'mi_secreto', // Cambia esto a una cadena segura
+  resave: false,
+  saveUninitialized: true
+}));
 
-    const user = await UserModel.findOne({ name: userName, password: userPassword });
 
-    if (user) {
-      res.json(user);
-    } else {
-      res.status(404).send('Usuario no encontrado');
-    }
-  } catch (error) {
-    console.error(error);
-    res.status(500).send('Error al loguearse');
-  }
+const User = mongoose.model('User', {
+  username: String,
+  password: String,
+  email: String
 });
 
-//Register
-app.post('/createUser', async (req, res) => {
-  try {
-    await UserModel.create(req.body);
-    res.status(200).send('Éxito en el registro!');
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Error al crear usuario' });
-      }
+app.use(express.urlencoded({ extended: true }));
+
+app.post('/register', async (req, res) => {
+  const { nombre, email, password, reingresar_password } = req.body;
+
+  // Verifica si el usuario ya existe
+  const existingUser = await User.findOne({ username: nombre });
+  if (existingUser) {
+    return res.send('El usuario ya existe');
+  }
+
+  // Verifica si las contraseñas coinciden
+  if (password !== reingresar_password) {
+    return res.send('Las contraseñas no coinciden');
+  }
+
+  // Crea un nuevo usuario en la base de datos
+  const newUser = new User({ username: nombre, email, password });
+  await newUser.save();
+
+  res.redirect('http://localhost:3001/login');
+});
+
+app.post('/login', async (req, res) => {
+  const { nombre, password } = req.body;
+
+  // Busca el usuario en la base de datos
+  const user = await User.findOne({ username: nombre });
+
+  if (user && user.password === password) {
+    // Inicia sesión y redirige al usuario a la página principal
+    req.session.userId = user._id;
+    return res.redirect('http://localhost:3001/');
+  }
+
+  res.send('Credenciales incorrectas');
+});
+
+app.get('/logout', (req, res) => {
+  // Destruye la sesión y redirige al usuario a la página principal
+  req.session.destroy(() => {
+    res.redirect('/');
+  });
 });
 
 //Listado de productos por categoria
