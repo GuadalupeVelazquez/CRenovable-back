@@ -169,3 +169,26 @@ app.put('/editUser/:id', async (req, res) => {
 app.listen(3000, () => {
     console.log('Servidor en ejecución en http://localhost:3000');
 });
+
+app.get('/getUserDetails/:id', async (req, res) => {
+    try {
+        const userId = req.params.id;
+        const userDetails = await UserModel.findById(userId);
+  
+        if (!userDetails) {
+            return res.status(404).json({ message: 'Usuario no encontrado' });
+        }
+        res.status(200).json({
+            username: userDetails.username,
+            name: userDetails.name,
+            country: userDetails.country,
+            city: userDetails.city,
+            street: userDetails.street,
+            email: userDetails.email,
+            telephone: userDetails.telephone,
+        });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ message: 'Error del servidor' });
+    }
+  });
