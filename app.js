@@ -24,6 +24,33 @@ const checkAuthentication = (req, res, next) => {
         res.status(403).json({ error: 'No has iniciado sesión.' });
     }
 };
+
+function concatShiptment(queryShiptment, where) {
+  if (queryShiptment === 'false') {
+    return {
+      ...where, //una copia de where sin modificaciones
+      shiptment: false,
+    }
+  }
+  if (queryShiptment === 'true') {
+    return {
+      ...where,
+      shiptment: true,
+    }
+  }
+  return { ...where };
+}
+
+function concatIsFreeShiptment(queryIsFreeShiptment, where) {
+  if (queryIsFreeShiptment === 'true') {
+    return {
+      ...where,
+      isFreeShiptment: true,
+    }
+  }
+  return { ...where };
+}
+
 app.use('/rutaProtegida', checkAuthentication);
 // Login de usuario
 app.post('/loginAndRegister', async (req, res) => {
@@ -122,14 +149,15 @@ app.get('/logout', (req, res) => {
 // Listado de productos por categoría
 app.get('/getProductsByCategory/:category', async (req, res) => {
     try {
-        const category = req.params.category;
-        const products = await ProductModel.find({ category });
+      const category = req.params.category;
+      const queryShiptment = req.query.shiptment;
+      const queryIsFreeShiptment = req.query.isFreeShiptment;
+      let where = { category };
+      where = concatShiptment(queryShiptment, where);
+      where = concatIsFreeShiptment(queryIsFreeShiptment, where);
+      const products = await ProductModel.find(where);
 
-        if (products.length > 0) {
-            res.json(products);
-        } else {
-            res.status(404).send('No se encontraron productos en la categoría especificada');
-        }
+      res.json(products);
     } catch (error) {
         console.error(error);
         res.status(500).send('Error al obtener productos por categoría');

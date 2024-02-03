@@ -8,6 +8,8 @@ const ProductSchema = new mongoose.Schema({
     category:String,
     masInfo:String,
     extra:String,
+    shiptment: Boolean,
+    isFreeShiptment: Boolean,
 })
 
 const ProductModel = mongoose.model('products',ProductSchema)
